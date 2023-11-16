@@ -91,7 +91,6 @@ def train_decision_tree(df):
     
     print(accuracy)
 
-
 def predict_naive_bayes(msg):
     loaded_trained_model = joblib.load(trained_naive_bayes)
     loaded_vectorized_model = joblib.load(vectorizer_naive_bayes)
@@ -124,5 +123,5 @@ def predict_decision_tree(msg):
 
 # train_naivy_bayes(df)
 # train_decision_tree(df)
-predict_decision_tree("i love someone")
-predict_naive_bayes("i love someone")
+# predict_decision_tree("i love someone")
+# predict_naive_bayes("i love someone")
