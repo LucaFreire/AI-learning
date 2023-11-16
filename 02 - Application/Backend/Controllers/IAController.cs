@@ -11,7 +11,7 @@ public class NaiveBayesController : ControllerBase
     public async Task<ActionResult<string>> NaiveBayesPredict(string message)
     {
         HttpClient client = new();
-        string naiveBayesURI = "http:localhost//3030/API/naive-bayes";
+        string naiveBayesURI = "http://localhost:3030/API/naive-bayes/";
 
         try
         {
@@ -29,7 +29,7 @@ public class NaiveBayesController : ControllerBase
     public async Task<ActionResult<string>> DecisionTreePredict(string message)
     {
         HttpClient client = new();
-        string decisionTreeURI = "http:localhost//3030/API/decision-tree";
+        string decisionTreeURI = "http://localhost:3030/API/decision-tree/";
 
         try
         {
