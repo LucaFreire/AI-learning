@@ -116,7 +116,6 @@ def predict_decision_tree(msg):
     
     sample = loaded_vectorizer_model.transform(my_df["content"]).toarray()
     prediction = loaded_trained_model.predict(sample)
-
     print(loaded_le_model.inverse_transform(prediction)[0])
     return loaded_le_model.inverse_transform(prediction)[0]
 

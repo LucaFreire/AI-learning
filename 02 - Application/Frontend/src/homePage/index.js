@@ -1,28 +1,29 @@
 import './style.css'
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 
 function HomePage() {
 
     const [text, setText] = useState('');
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState([]);
     const [backResponse, setBackResponse] = useState(true);
 
     const handleNaiveBayes = useCallback(async () => {
-        const backURI = "http://localhost/:5013/IA/naive-bayes/"
+        const backURI = "http://localhost:5013/IA/naive-bayes/"
         try {
-            const res = await axios.get(backURI + text).data;
-            setValue(res)
+            console.log(backURI + text);
+            const res = await axios.get(backURI + text);
+            setValue(res.data)
         } catch (error) {
             setBackResponse(false);
         }
     })
 
     const handleDecisionTree = useCallback(async () => {
-        const backURI = "http://localhost/:5013/IA/decision-tree/"
+        const backURI = "http://localhost:5013/IA/decision-tree/"
         try {
-            const res = await axios.get(backURI + text).data;
-            setValue(res)
+            const res = await axios.get(backURI + text);
+            setValue(res.data)
         } catch (error) {
             setBackResponse(false);
         }
@@ -31,9 +32,9 @@ function HomePage() {
     return (
         <div className="main">
 
-            <textarea className='text-area' placeholder="Your Text"></textarea>
+            <textarea className='text-area' onChange={(e) => setText(e.target.value)} placeholder="Your Text"></textarea>
             
-            <button onClick={handleNaiveBayes} onChange={(e) => setText(e.target.value)}>
+            <button onClick={handleNaiveBayes}>
                 Request Naive Bayes
             </button>
             
