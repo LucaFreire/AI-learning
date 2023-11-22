@@ -1,9 +1,0 @@
-worry
-sadness
-surprise
-love
-neutral
-fun
-empty
-happiness
-hate
