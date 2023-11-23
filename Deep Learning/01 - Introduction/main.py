@@ -92,22 +92,22 @@ data_gen = image.ImageDataGenerator(
 X_train = data_gen.flow_from_directory(
     "./photos",
     target_size= (64, 64),
-    batch_size=32, # photos qtd. for training's cycle
+    batch_size=1000, # photos qtd. for training's cycle
     class_mode='categorical'
 )
 X_tests = data_gen.flow_from_directory(
     "./photos",
     target_size= (64, 64),
-    batch_size=32,
+    batch_size=100,
     class_mode='categorical',
     subset='validation'
 )
 
 model.fit(
     X_train,
-    steps_per_epoch=1000,   #steps per epochs * batchSize == training size
+    steps_per_epoch=32,   #steps per epochs * batchSize == training size
     epochs=50, # qtd max of training ephoc
-    validation_steps=100,
+    validation_steps=32,
     callbacks=[
         callbacks.EarlyStopping(patience=4),
         callbacks.ModelCheckpoint(
